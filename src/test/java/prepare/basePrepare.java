@@ -42,12 +42,12 @@ public class basePrepare {
 //				driver.manage().window().maximize();
 			}else 
 				if(browser.equals("remote")){
-					DesiredCapabilities dc = DesiredCapabilities.firefox();//ÉèÖÃÔ¶³ÌÆô¶¯µÄä¯ÀÀÆ÷
-					driver = new RemoteWebDriver(new URL("http://172.25.34.146:4444/wd/hub"), dc);//URL Ô¶³Ì»úµÄIpµØÖ·	
+					DesiredCapabilities dc = DesiredCapabilities.firefox();//è®¾ç½®è¿œç¨‹å¯åŠ¨çš„æµè§ˆå™¨
+					driver = new RemoteWebDriver(new URL("http://172.25.34.146:4444/wd/hub"), dc);//URL è¿œç¨‹æœºçš„Ipåœ°å€	
 				}
       testContext.setAttribute("SELENIUM_DRIVER",driver);  
-	  driver.manage().timeouts().pageLoadTimeout(2, TimeUnit.MINUTES);//Ò³Ãæ¼ÓÔØµÄ³¬Ê±Ê±¼ä 
-	  driver.manage().timeouts().implicitlyWait(1,TimeUnit.MINUTES);//µÈ´ıÒ³ÃæÔªËØÏÔÊ¾µÄ³¬Ê±Ê±¼ä
+	  driver.manage().timeouts().pageLoadTimeout(2, TimeUnit.MINUTES);//é¡µé¢åŠ è½½çš„è¶…æ—¶æ—¶é—´ 
+	  driver.manage().timeouts().implicitlyWait(1,TimeUnit.MINUTES);//ç­‰å¾…é¡µé¢å…ƒç´ æ˜¾ç¤ºçš„è¶…æ—¶æ—¶é—´
 	}
 	
   @AfterClass 

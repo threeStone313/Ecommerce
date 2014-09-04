@@ -20,8 +20,8 @@ public class D38VerifyIfAUserIsAlreadyLoggedInWeWillRecognizeThatUserWhenTheyPro
 	  Thread.sleep(2000);
 	  st.viewCart("close");
 	  Thread.sleep(2000);
-//	  WebDriverWait wait = new WebDriverWait(basePrepare.driver, 15);//µÈ´ı15sºó³¬Ê±
-//		wait.until(ExpectedConditions.elementToBeClickable(By.id("lnkLogin")));//µÈ´ıÖ±µ½ÔªËØ¿ÉÒÔµã»÷µÄÊ±ºòÔÙµã»÷
+//	  WebDriverWait wait = new WebDriverWait(basePrepare.driver, 15);//ç­‰å¾…15såè¶…æ—¶
+//		wait.until(ExpectedConditions.elementToBeClickable(By.id("lnkLogin")));//ç­‰å¾…ç›´åˆ°å…ƒç´ å¯ä»¥ç‚¹å‡»çš„æ—¶å€™å†ç‚¹å‡»
 	  st.guestOrMember("member");
 	  st.getShoppingcart();
 	  driver.findElement(By.xpath("//button[contains(text(),'PROCEED TO CHECKOUT')]")).click();

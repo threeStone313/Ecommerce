@@ -7,21 +7,21 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class StepsCollection {
 
-	public void getHP() {// 去到homepage
+	public void getHP() {// 鍘诲埌homepage
 		basePrepare.driver.get("http://qa.weddingshop.theknot.com/");
 	}
 
-	public void getShoppingcart() {// 去到shoppingcart
+	public void getShoppingcart() {// 鍘诲埌shoppingcart
 		basePrepare.driver
 				.get("http://qa.weddingshop.theknot.com/cart/shoppingcart.aspx");
 	}
 
-	public void getSubsubcategory() {// 去到Subsubcategory page
+	public void getSubsubcategory() {// 鍘诲埌Subsubcategory page
 		basePrepare.driver
 				.get("http://qa.weddingshop.theknot.com/wedding-candles.aspx");
 	}
 
-	public void Search(String a) {// 输入关键字并搜索
+	public void Search(String a) {// 杈撳叆鍏抽敭瀛楀苟鎼滅储
 		basePrepare.driver.findElement(
 				By.id("ctl00_tkShared_Header_txtHeaderSearchBox")).sendKeys(a);
 		basePrepare.driver.findElement(
@@ -29,8 +29,8 @@ public class StepsCollection {
 				.click();
 	}
 
-	public void ProductPageAndAdd(String a) throws Exception {// 跟据传的参数进入到不同的product
-																// page并且添加
+	public void ProductPageAndAdd(String a) throws Exception {// 璺熸嵁浼犵殑鍙傛暟杩涘叆鍒颁笉鍚岀殑product
+																// page骞朵笖娣诲姞
 		if (a == "be") {
 			basePrepare.driver
 					.get("http://qa.weddingshop.theknot.com/personalized-napkins-beverage.aspx");
@@ -189,8 +189,8 @@ public class StepsCollection {
 		}
 	}
 
-	public void viewCart(String a) throws InterruptedException {// 对viewcart
-																// modal上的按钮进行操作
+	public void viewCart(String a) throws InterruptedException {// 瀵箆iewcart
+																// modal涓婄殑鎸夐挳杩涜鎿嶄綔
 		if (a == "checkout") {
 			Thread.sleep(5000);
 			basePrepare.driver.findElement(
@@ -202,7 +202,7 @@ public class StepsCollection {
 			basePrepare.driver
 					.findElement(
 							By.xpath("//div[@id='divFlyoutCart']//button[@class='close']"))
-					.click();// 关闭modal
+					.click();// 鍏抽棴modal
 		}
 	}
 

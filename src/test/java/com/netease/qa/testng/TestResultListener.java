@@ -21,16 +21,16 @@ import org.testng.TestListenerAdapter;
 
 /**
  * @author netease_arrow
- * 描述：来自网易的截图插件
+ * 
  * 
  */
 public class TestResultListener extends TestListenerAdapter {
 
 	private static Logger logger = Logger.getLogger(TestResultListener.class.getName());
-    protected ITestContext testContext = null; //这里也是新加的
+    protected ITestContext testContext = null; 
 	
 	@Override
-	public void onStart(ITestContext testContext) {   //这里也是新加的，用于对context进行统一
+	public void onStart(ITestContext testContext) {   
 		this.testContext = testContext;
 		super.onStart(testContext);
 	}
@@ -39,7 +39,7 @@ public class TestResultListener extends TestListenerAdapter {
 	public void onTestFailure(ITestResult tr) {
 		super.onTestFailure(tr);
 		logger.info(tr.getName() + " test case runs failed!");
-		WebDriver webDriver =  (WebDriver) testContext.getAttribute("SELENIUM_DRIVER");  //这里就是取driver
+		WebDriver webDriver = (WebDriver) testContext.getAttribute("SELENIUM_DRIVER");  //杩欓噷灏辨槸鍙杁river
 		saveScreenShot(tr,webDriver);
 	}
 
@@ -136,22 +136,22 @@ public class TestResultListener extends TestListenerAdapter {
         String fileName = mDateTime + "_" + tr.getName();
         String filePath = "";
         try {
-            //这里可以调用不同框架的截图功能
+            
             File screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
             filePath = "result/screenshot/" + fileName + ".jpg";
             File destFile = new File(filePath);
             FileUtils.copyFile(screenshot, destFile);
-            logger.info(fileName+" screenshot successfully，saved："+"[ "+filePath+" ]");
+            logger.info(fileName+"screenshot successfully,saved"+"[ "+filePath+" ]");
 
         } catch (Exception e) {
-                filePath = fileName + " ,screenshot failed,the reason:" + e.getMessage();
+                filePath = fileName + " ,screenshot failed saved,the reason:" + e.getMessage();
                 logger.error(filePath);
         }
 
         if (!"".equals(filePath)) {
              Reporter.setCurrentTestResult(tr);
              Reporter.log(filePath);
-             //把截图写入到Html报告中方便查看
+             
              Reporter.log("<img src=\"../../" + filePath + "\"/>");
         }
  }

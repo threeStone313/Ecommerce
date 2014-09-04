@@ -31,7 +31,7 @@ public class TestngRetry implements IRetryAnalyzer {
 
 	public boolean retry(ITestResult result) {
 		if (retryCount <= maxRetryCount) {
-			String message = "Retry for£º [" + result.getName() + "] on class [" + result.getTestClass().getName() + "] retry "
+			String message = "Retry forï¼š [" + result.getName() + "] on class [" + result.getTestClass().getName() + "] retry "
 					+ retryCount + " times";
 			logger.info(message);
 			Reporter.setCurrentTestResult(result);

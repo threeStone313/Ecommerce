@@ -28,10 +28,10 @@ public class E43VerifyAValidPromotionalCodeCanBeAppliedAndRemove extends basePre
 	  String total2= driver.findElement(By.xpath("//div[@id='SummaryTotals']//div[6]//div[2]//strong")).getText();
 	  Assert.assertEquals("$154.70", subtotal);
 	  Assert.assertEquals("$245.27", total2);
-	  String js1 = "return document.documentElement.scrollHeight;";  // ·µ»Ø»¬¶¯ÌõµÄÎ»ÖÃÖµ
-	  String js2="scroll(0,10000);";//Ö¸¶¨¹ö¶¯ÌõÒª¹ö¶¯µÄÏñËØ
-	  ((JavascriptExecutor)driver).executeScript(js1);// ·µ»Ø»¬¶¯ÌõµÄÎ»ÖÃÖµ
-	  ((JavascriptExecutor)driver).executeScript(js2);//Ö´ĞĞ¹ö¶¯
+	  String js1 = "return document.documentElement.scrollHeight;";  // è¿”å›æ»‘åŠ¨æ¡çš„ä½ç½®å€¼
+	  String js2="scroll(0,10000);";//æŒ‡å®šæ»šåŠ¨æ¡è¦æ»šåŠ¨çš„åƒç´ 
+	  ((JavascriptExecutor)driver).executeScript(js1);// è¿”å›æ»‘åŠ¨æ¡çš„ä½ç½®å€¼
+	  ((JavascriptExecutor)driver).executeScript(js2);//æ‰§è¡Œæ»šåŠ¨
 	  st.promoCode("remove");
 	  Assert.assertEquals("$154.70", subtotal);
 	  Assert.assertEquals("$261.82", total);

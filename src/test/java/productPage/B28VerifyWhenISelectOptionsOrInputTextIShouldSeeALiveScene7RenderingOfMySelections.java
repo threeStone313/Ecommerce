@@ -47,7 +47,7 @@ public class B28VerifyWhenISelectOptionsOrInputTextIShouldSeeALiveScene7Renderin
 //		  driver.findElement(By.id("Line 2")).sendKeys("Line 2");
 //		  driver.findElement(By.xpath("//span[@class='current_step' and text()=6]/../../../.")).click();
 //			Thread.sleep(2000);
-//			System.out.print("´í");
+//			System.out.print("é”™");
 //			Assert.assertEquals(Src, img);
 //	  }else{
 	  Assert.assertEquals(Src, img);
