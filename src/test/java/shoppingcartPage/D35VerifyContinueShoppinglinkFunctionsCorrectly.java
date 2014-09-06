@@ -2,21 +2,17 @@ package shoppingcartPage;
 
 
 import org.openqa.selenium.By;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import prepare.StepsCollection;
-import prepare.basePrepare;
 
-public class D35VerifyContinueShoppinglinkFunctionsCorrectly extends basePrepare{
+public class D35VerifyContinueShoppinglinkFunctionsCorrectly{
   @Test
-  public void Continue() throws Exception {
+  public void Continue()  {
 	  StepsCollection st=new StepsCollection();
 	  st.ProductPageAndAdd("de");
-	  driver.findElement(By.xpath("//a[@class='btn btn-primary btn-lg']")).click();
-	  driver.findElement(By.xpath("//a[contains(text(),'CONTINUE SHOPPING')]")).click();
-	  Assert.assertEquals("http://qa.weddingshop.theknot.com/", driver.getCurrentUrl());
-	 
-	  
+	  st.singleClick(By.xpath("//a[@class='btn btn-primary btn-lg']"));
+	  st.singleClick(By.xpath("//a[contains(text(),'CONTINUE SHOPPING')]"));
+	  st.UrlEquals("http://qa.weddingshop.theknot.com/"); 
   }
 }

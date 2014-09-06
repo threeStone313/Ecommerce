@@ -1,303 +1,218 @@
 package prepare;
 
 import org.openqa.selenium.*;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
-public class StepsCollection {
-
+public class StepsCollection{
+	autoMan autoMan=null;
 	public void getHP() {// 去到homepage
-		basePrepare.driver.get("http://qa.weddingshop.theknot.com/");
+		autoMan.getUrl("http://qa.weddingshop.theknot.com/");
 	}
 
 	public void getShoppingcart() {// 去到shoppingcart
-		basePrepare.driver
-				.get("http://qa.weddingshop.theknot.com/cart/shoppingcart.aspx");
+		autoMan.getUrl("http://qa.weddingshop.theknot.com/cart/shoppingcart.aspx");
 	}
 
 	public void getSubsubcategory() {// 去到Subsubcategory page
-		basePrepare.driver
-				.get("http://qa.weddingshop.theknot.com/wedding-candles.aspx");
+		autoMan.getUrl("http://qa.weddingshop.theknot.com/wedding-candles.aspx");
 	}
 
 	public void Search(String a) {// 输入关键字并搜索
-		basePrepare.driver.findElement(
+		autoMan.getElement(
 				By.id("ctl00_tkShared_Header_txtHeaderSearchBox")).sendKeys(a);
-		basePrepare.driver.findElement(
+		autoMan.getElementNoWait(
 				By.xpath("//span[@class='glyphicon glyphicon-search']"))
 				.click();
 	}
 
-	public void ProductPageAndAdd(String a) throws Exception {// 跟据传的参数进入到不同的product
+	public void ProductPageAndAdd(String a) {// 跟据传的参数进入到不同的product
 																// page并且添加
 		if (a == "be") {
-			basePrepare.driver
-					.get("http://qa.weddingshop.theknot.com/personalized-napkins-beverage.aspx");
-			basePrepare.driver
-					.findElement(
+			autoMan.getUrl("http://qa.weddingshop.theknot.com/personalized-napkins-beverage.aspx");
+			autoMan.getElement(
 							By.xpath("//div[@class='prod-buttons text-center btn-group-lg']//button[@id='ctl00_MainContentArea_ctl00_ctl00_ctl00_addToCartPersonalized']"))
 					.click();
-			Select select = new Select(basePrepare.driver.findElement(By
-					.id("Napkin Designs")));
-			select.selectByVisibleText("I Do");
-			Select B = new Select(basePrepare.driver.findElement(By
-					.id("Napkin Colors")));
-			B.selectByVisibleText("Plum");
-			Select C = new Select(basePrepare.driver.findElement(By
-					.id("Foil or Ink Colors")));
-			C.selectByVisibleText("Silver Foil");
-			Select D = new Select(
-					basePrepare.driver.findElement(By.id("Fonts")));
-			D.selectByVisibleText("Modern");
-			basePrepare.driver.findElement(
+			autoMan.selectByVisibleText(By.id("Napkin Designs"),"I Do" );
+			autoMan.selectByVisibleText(By.id("Napkin Colors"),"Plum" );
+			autoMan.selectByVisibleText(By.id("Foil or Ink Colors"),"Silver Foil");
+			autoMan.selectByVisibleText(By.id("Fonts"),"Modern" );
+			autoMan.getElementNoWait(
 					By.xpath("//span[contains(text(),'Enter')]")).click();
-			Thread.sleep(1000);
-			basePrepare.driver.findElement(By.id("Line 1")).click();
-			basePrepare.driver.findElement(By.id("Line 1")).sendKeys("Line 1");
-			basePrepare.driver.findElement(By.id("Line 2")).click();
-			Thread.sleep(1000);
-			basePrepare.driver.findElement(By.id("Line 2")).sendKeys("Line 2");
-			basePrepare.driver
-					.findElement(
-							By.xpath("//span[@class='current_step' and text()=6]/../../../."))
-					.click();
-			Thread.sleep(2000);
-			basePrepare.driver.findElement(By.id("PersonalizationQuantity"))
+			autoMan.getElement(By.id("Line 1")).click();
+			autoMan.getElement(By.id("Line 1")).sendKeys("Line 1");
+			autoMan.getElement(By.id("Line 2")).click();
+			autoMan.getElement(By.id("Line 2")).sendKeys("Line 2");
+			autoMan.getElementNoWait(By.xpath("//span[@class='current_step' and text()=6]/../../../.")).click();				
+			autoMan.getElement(By.id("PersonalizationQuantity"))
 					.clear();
-			basePrepare.driver.findElement(By.id("PersonalizationQuantity"))
+			autoMan.getElementNoWait(By.id("PersonalizationQuantity"))
 					.sendKeys("2");
-			basePrepare.driver
-					.findElement(By.id("addFromPersonalizationModal")).click();
-			Thread.sleep(4000);
+			autoMan.getElement(By.id("addFromPersonalizationModal")).click();
+			autoMan.sleep(4000);;
 		} else if (a == "de") {
-			Thread.sleep(2000);
-			basePrepare.driver
-					.get("http://qa.weddingshop.theknot.com/deluxe-personalized-ribbon-38.aspx");
-			Thread.sleep(2000);
-			basePrepare.driver
-					.findElement(
-							By.xpath("//div[@class='prod-buttons text-center btn-group-lg']//button[@id='ctl00_MainContentArea_ctl00_ctl00_ctl00_addToCartPersonalized']"))
+			autoMan.getUrl("http://qa.weddingshop.theknot.com/deluxe-personalized-ribbon-38.aspx");
+			autoMan.getElement(By.xpath("//div[@class='prod-buttons text-center btn-group-lg']//button[@id='ctl00_MainContentArea_ctl00_ctl00_ctl00_addToCartPersonalized']"))
 					.click();
-			Thread.sleep(2000);
-			basePrepare.driver
-					.findElement(
-							By.xpath("//span[@class='current_step' and text()=3]/../../../."))
+			autoMan.getElement(By.xpath("//span[@class='current_step' and text()=3]/../../../.")).click();
+			autoMan.getElement(By.xpath("//input[@id='Names']")).click();
+			autoMan.getElement(By.xpath("//input[@id='Names']")).sendKeys("test");
+			autoMan.getElementNoWait(By.xpath("//span[@class='current_step' and text()=6]/../../../."))
 					.click();
-			Thread.sleep(2000);
-			basePrepare.driver.findElement(By.xpath("//input[@id='Names']"))
-					.click();
-			basePrepare.driver.findElement(By.xpath("//input[@id='Names']"))
-					.sendKeys("test");
-			basePrepare.driver
-					.findElement(
-							By.xpath("//span[@class='current_step' and text()=6]/../../../."))
-					.click();
-			Thread.sleep(3000);
-			basePrepare.driver.findElement(By.id("PersonalizationQuantity"))
-					.clear();
-			basePrepare.driver.findElement(By.id("PersonalizationQuantity"))
-					.sendKeys("5");
-			basePrepare.driver
-					.findElement(By.id("addFromPersonalizationModal")).click();
-			Thread.sleep(2000);
+			autoMan.sleep(3000);
+			autoMan.getElement(By.id("PersonalizationQuantity")).clear();
+			autoMan.getElementNoWait(By.id("PersonalizationQuantity")).sendKeys("5");
+			autoMan.getElement(By.id("addFromPersonalizationModal")).click();
+			autoMan.sleep(2000);
 		} else if (a == "tee") {
-			basePrepare.driver
-					.get("http://qa.weddingshop.theknot.com/crystal-flower-girl-tee.aspx");
-			Select b = new Select(basePrepare.driver.findElement(By
-					.id("tkDropdown0")));
-			b.selectByVisibleText("Pink");
-			Select c = new Select(basePrepare.driver.findElement(By
-					.id("tkDropdown1")));
-			c.selectByVisibleText("Size 2");
-			basePrepare.driver.findElement(
-					By.id("ctl00_MainContentArea_ctl00_ctl00_ctl00_addToCart"))
+			autoMan.getUrl("http://qa.weddingshop.theknot.com/crystal-flower-girl-tee.aspx");
+			autoMan.selectByVisibleText(By.id("tkDropdown0"),"Pink" );
+			autoMan.selectByVisibleText(By.id("tkDropdown1"),"Size 2" );
+			autoMan.getElement(By.id("ctl00_MainContentArea_ctl00_ctl00_ctl00_addToCart"))
 					.click();
-			Thread.sleep(2000);
+			autoMan.sleep(2000);
 		} else if (a == "pa") {// paddle fan
-			basePrepare.driver
-					.get("http://qa.weddingshop.theknot.com/paddle-fan.aspx");
-			new Select(basePrepare.driver.findElement(By.id("tkDropdown0")))
-					.selectByVisibleText("Black");
-			basePrepare.driver.findElement(By.id("gotoquantity")).click();
-			Thread.sleep(1000);
-			basePrepare.driver.findElement(
-					By.id("ctl00_MainContentArea_ctl00_ctl00_ctl00_txtQty"))
-					.clear();
-			basePrepare.driver.findElement(
-					By.id("ctl00_MainContentArea_ctl00_ctl00_ctl00_txtQty"))
-					.sendKeys("7");
-			basePrepare.driver.findElement(
-					By.id("ctl00_MainContentArea_ctl00_ctl00_ctl00_addToCart"))
-					.click();
-			Thread.sleep(2000);
+			autoMan.getUrl("http://qa.weddingshop.theknot.com/paddle-fan.aspx");
+			autoMan.selectByVisibleText(By.id("tkDropdown0"),"Black" );
+			autoMan.getElement(By.id("gotoquantity")).click();
+			autoMan.getElement(By.id("ctl00_MainContentArea_ctl00_ctl00_ctl00_txtQty")).clear();
+			autoMan.getElement(By.id("ctl00_MainContentArea_ctl00_ctl00_ctl00_txtQty")).sendKeys("7");
+			autoMan.getElementNoWait(By.id("ctl00_MainContentArea_ctl00_ctl00_ctl00_addToCart")).click();
+			autoMan.sleep(2000);
 		} else if (a == "sa") {// sandalwood fan
-			basePrepare.driver
-					.get("http://qa.weddingshop.theknot.com/sandalwood-fan.aspx");
-			Thread.sleep(2000);
-			basePrepare.driver.findElement(
-					By.id("ctl00_MainContentArea_ctl00_ctl00_ctl00_addToCart"))
+			autoMan.getUrl("http://qa.weddingshop.theknot.com/sandalwood-fan.aspx");
+			autoMan.getElement(By.id("ctl00_MainContentArea_ctl00_ctl00_ctl00_addToCart"))
 					.click();
-			Thread.sleep(4000);
+			autoMan.sleep(4000);
 		} else if (a == "en") {// addWithoutPersonalization
-			basePrepare.driver
-					.get("http://qa.weddingshop.theknot.com/engravable-beer-mug.aspx");
-			Thread.sleep(2000);
-			basePrepare.driver.findElement(By.id("gotoquantity")).click();
-			Thread.sleep(1000);
-			basePrepare.driver.findElement(
-					By.id("ctl00_MainContentArea_ctl00_ctl00_ctl00_txtQty"))
+			autoMan.getUrl("http://qa.weddingshop.theknot.com/engravable-beer-mug.aspx");
+			autoMan.getElement(By.id("gotoquantity")).click();
+			autoMan.getElement(By.id("ctl00_MainContentArea_ctl00_ctl00_ctl00_txtQty"))
 					.clear();
-			basePrepare.driver.findElement(
-					By.id("ctl00_MainContentArea_ctl00_ctl00_ctl00_txtQty"))
+			autoMan.getElement(By.id("ctl00_MainContentArea_ctl00_ctl00_ctl00_txtQty"))
 					.sendKeys("3");
-			basePrepare.driver
-					.findElement(
-							By.id("ctl00_MainContentArea_ctl00_ctl00_ctl00_addWithoutPersonalization"))
+			autoMan.getElementNoWait(By.id("ctl00_MainContentArea_ctl00_ctl00_ctl00_addWithoutPersonalization"))
 					.click();
-			Thread.sleep(2000);
+			autoMan.sleep(2000);
 		} else if (a == "eng") {// addWithPersonalization
-			basePrepare.driver
-					.get("http://qa.weddingshop.theknot.com/engravable-beer-mug.aspx");
-			Thread.sleep(2000);
-			basePrepare.driver
-					.findElement(
-							By.xpath("//div[@class='prod-buttons text-center btn-group-lg']//button[@id='ctl00_MainContentArea_ctl00_ctl00_ctl00_addToCartPersonalized']"))
+			autoMan.getUrl("http://qa.weddingshop.theknot.com/engravable-beer-mug.aspx");
+			autoMan.sleep(2000);
+			autoMan.getElement(By.xpath("//div[@class='prod-buttons text-center btn-group-lg']//button[@id='ctl00_MainContentArea_ctl00_ctl00_ctl00_addToCartPersonalized']"))
 					.click();
-			Thread.sleep(1000);
-			new Select(basePrepare.driver.findElement(By
-					.xpath("//select[@id='Font']")))
-					.selectByVisibleText("Circle Monogram");
-			basePrepare.driver.findElement(
-					By.xpath("//span[contains(text(),'Name')]")).click();
-			Thread.sleep(1000);
-			basePrepare.driver.findElement(By.id("First Initial")).click();
-			basePrepare.driver.findElement(By.id("First Initial"))
-					.sendKeys("A");
-			basePrepare.driver.findElement(By.id("Third Initial")).click();
-			basePrepare.driver.findElement(By.id("Third Initial"))
-					.sendKeys("B");
-			basePrepare.driver.findElement(By.id("Second Initial")).click();
-			basePrepare.driver.findElement(By.id("Second Initial")).sendKeys(
-					"C");
-			basePrepare.driver.findElement(
-					By.xpath("//span[contains(text(),'How')]")).click();
-			Thread.sleep(3000);
-			basePrepare.driver
-					.findElement(By.id("addFromPersonalizationModal")).click();
-			Thread.sleep(3000);
+			autoMan.selectByVisibleText(By.xpath("//select[@id='Font']"), "Circle Monogram");
+			autoMan.getElementNoWait(By.xpath("//span[contains(text(),'Name')]")).click();
+			autoMan.getElement(By.id("First Initial")).click();
+			autoMan.getElement(By.id("First Initial")).sendKeys("A");
+			autoMan.getElement(By.id("Third Initial")).click();
+			autoMan.getElement(By.id("Third Initial")).sendKeys("B");
+			autoMan.getElement(By.id("Second Initial")).click();
+			autoMan.getElement(By.id("Second Initial")).sendKeys("C");
+			autoMan.getElement(By.xpath("//span[contains(text(),'How')]")).click();
+			autoMan.sleep(3000);
+			autoMan.getElement(By.id("addFromPersonalizationModal")).click();
+			autoMan.sleep(3000);
 		}
 	}
 
-	public void viewCart(String a) throws InterruptedException {// 对viewcart
-																// modal上的按钮进行操作
+	public void viewCart(String a) {// 对viewcart modal上的按钮进行操作
 		if (a == "checkout") {
-			Thread.sleep(5000);
-			basePrepare.driver.findElement(
-					By.xpath("//a[@class='btn btn-primary btn-lg']")).click();// go
-																				// to
-																				// shoppingcart
-		} else if (a == "close") {
-			Thread.sleep(2000);
-			basePrepare.driver
-					.findElement(
-							By.xpath("//div[@id='divFlyoutCart']//button[@class='close']"))
-					.click();// 关闭modal
+			autoMan.getElement(By.xpath("//a[@class='btn btn-primary btn-lg']")).click();// go to shoppingcart
+			autoMan.sleep(4000);
+		} else 
+			if (a == "close") {
+			autoMan.getElement(By.xpath("//div[@id='divFlyoutCart']//button[@class='close']")).click();// 关闭modal
 		}
 	}
 
-	public void guestOrMember(String a) throws InterruptedException {
+	public void guestOrMember(String a)  {
 		if (a == "guest") {
-			basePrepare.driver
-					.findElement(
-							By.xpath("//button[contains(text(),'PROCEED TO CHECKOUT')]"))
+			autoMan.getElement(By.xpath("//button[contains(text(),'PROCEED TO CHECKOUT')]"))
 					.click();
-			Thread.sleep(2000);
-			basePrepare.driver.findElement(By.id("divCheckoutAsGuestButton"))
+			autoMan.getElement(By.id("divCheckoutAsGuestButton"))
 					.click();
 		} else if (a == "member") {
-
-			basePrepare.driver.findElement(By.id("lnkLogin")).click();
-			basePrepare.driver.findElement(By.id("txtUsername")).sendKeys(
+			autoMan.getElement(By.id("lnkLogin")).click();
+			autoMan.getElement(By.id("txtUsername")).sendKeys(
 					"vicwangtest@gmail.com");
-			basePrepare.driver.findElement(By.id("txtPassword")).sendKeys(
+			autoMan.getElement(By.id("txtPassword")).sendKeys(
 					"123456");
-			basePrepare.driver.findElement(By.id("divLoginButton")).click();
-			Thread.sleep(3000);
+			autoMan.getElement(By.id("divLoginButton")).click();
+			autoMan.sleep(3000);
 		}
 	}
 
-	public void billingShippingInfo() throws Exception {
-		basePrepare.driver
-				.findElement(
-						By.xpath("//div[@id='tkBillingAddress']//input[@name='FirstName']"))
-				.sendKeys("vic");
-		basePrepare.driver
-				.findElement(
-						By.xpath("//div[@id='tkBillingAddress']//input[@name='LastName']"))
+	public void billingShippingInfo(){
+		autoMan.getElement(By.xpath("//div[@id='tkBillingAddress']//input[@name='FirstName']")).sendKeys("vic");
+		autoMan.getElementNoWait(By.xpath("//div[@id='tkBillingAddress']//input[@name='LastName']"))
 				.sendKeys("wang");
-		basePrepare.driver
-				.findElement(
-						By.xpath("//div[@id='tkBillingAddress']//input[@name='Email']"))
+		autoMan.getElementNoWait(By.xpath("//div[@id='tkBillingAddress']//input[@name='Email']"))
 				.sendKeys("vicwangtest@gmail.com");
-		basePrepare.driver
-				.findElement(
-						By.xpath("//div[@id='tkBillingAddress']//input[@name='Address1']"))
+		autoMan.getElementNoWait(By.xpath("//div[@id='tkBillingAddress']//input[@name='Address1']"))
 				.sendKeys("11600 burt");
-		basePrepare.driver
-				.findElement(
-						By.xpath("//div[@id='tkBillingAddress']//input[@name='Address2']"))
+		autoMan.getElementNoWait(By.xpath("//div[@id='tkBillingAddress']//input[@name='Address2']"))
 				.sendKeys("2");
-		basePrepare.driver.findElement(
-				By.xpath("//div[@id='tkBillingAddress']//input[@name='City']"))
+		autoMan.getElementNoWait(By.xpath("//div[@id='tkBillingAddress']//input[@name='City']"))
 				.sendKeys("Omaha");
-		basePrepare.driver
-				.findElement(
-						By.xpath("//div[@id='tkBillingAddress']//input[@name='State']"))
+		autoMan.getElementNoWait(By.xpath("//div[@id='tkBillingAddress']//input[@name='State']"))
 				.sendKeys("ne");
-		basePrepare.driver
-				.findElement(
-						By.xpath("//div[@id='tkBillingAddress']//input[@name='ZipCode']"))
+		autoMan.getElementNoWait(By.xpath("//div[@id='tkBillingAddress']//input[@name='ZipCode']"))
 				.sendKeys("68154");
-		basePrepare.driver
-				.findElement(
-						By.xpath("//div[@id='tkBillingAddress']//input[@name='Phone']"))
+		autoMan.getElementNoWait(By.xpath("//div[@id='tkBillingAddress']//input[@name='Phone']"))
 				.sendKeys("1234567890");
-		basePrepare.driver.findElement(By.id("SaveAndContinue")).click();
-		Thread.sleep(3000);
+		autoMan.getElementNoWait(By.id("SaveAndContinue")).click();
+		autoMan.sleep(3000);
 
 	}
 
-	public void promoCode(String a) throws Exception {
+	public void promoCode(String a){
 		if (a == "add") {
-			basePrepare.driver.findElement(
-					By.xpath("//input[@id='CouponCode1']")).click();
-			basePrepare.driver.findElement(
-					By.xpath("//input[@id='CouponCode1']")).sendKeys(
+			autoMan.getElement(By.xpath("//input[@id='CouponCode1']")).click();
+			autoMan.getElement(By.xpath("//input[@id='CouponCode1']")).sendKeys(
 					"savetennow");
-			basePrepare.driver.findElement(
+			autoMan.getElementNoWait(
 					By.xpath("//a[@class='btn btn-primary btn-sm']")).click();
-			Thread.sleep(8000);
+			autoMan.sleep(8000);
 		} else if (a == "remove") {
-			basePrepare.driver.findElement(
+			autoMan.getElement(
 					By.xpath("//a[contains(text(),'remove')]")).click();
-			Thread.sleep(4000);
+			autoMan.sleep(6000);
 		}
 	}
 
-	public void ccInfoAndSubmit() throws InterruptedException {
-		Thread.sleep(10000);
-		basePrepare.driver.findElement(By.id("CCName")).click();
-		basePrepare.driver.findElement(By.id("CCName")).sendKeys("st");
-		basePrepare.driver.findElement(By.id("CCNumber")).click();
-		basePrepare.driver.findElement(By.id("CCNumber")).sendKeys(
-				"4111111111111111");
-		basePrepare.driver.findElement(By.id("CCCCV")).click();
-		basePrepare.driver.findElement(By.id("CCCCV")).sendKeys("123");
-		basePrepare.driver
-				.findElement(
-						By.xpath("//div[@id='cktwo']//a[contains(text(),'SUBMIT ORDER')]"))
+	public void ccInfoAndSubmit(){//输入信用卡信息并提交
+		autoMan.getElement(By.id("CCName")).click();
+		autoMan.getElement(By.id("CCName")).sendKeys("st");
+		autoMan.getElement(By.id("CCNumber")).click();
+		autoMan.getElement(By.id("CCNumber")).sendKeys("4111111111111111");
+		autoMan.getElement(By.id("CCCCV")).click();
+		autoMan.getElement(By.id("CCCCV")).sendKeys("123");
+		autoMan.getElement(By.xpath("//div[@id='cktwo']//a[contains(text(),'SUBMIT ORDER')]"))
 				.click();
-		Thread.sleep(5000);
+		autoMan.sleep(5000);
+	}
+	public void singleClick(final By by){//单个的点击操作
+		autoMan.getElement(by).click();
+		autoMan.sleep(3000);
+	}
+	public void singleClear(final By by){//单个的清除文本操作
+		autoMan.getElement(by).clear();
+	}
+	public void singleSend(final By by,String a){//单个的输入文本操作
+		autoMan.getElement(by).sendKeys(a);
+	}
+	public void 滚动条(String coodinate){
+		 String js="scroll(coodinate);";//指定滚动条要滚动的像素
+		  ((JavascriptExecutor)basePrepare.driver).executeScript(js);//执行滚动
+	}
+	public void UrlEquals(String a){
+		 Assert.assertEquals(a,autoMan.getCurrentUrl());
+	}
+	public void textEquals(String a,final By by){
+		Assert.assertEquals(a,autoMan.getElement(by).getText());
+	}
+	public void trueEquals(final By by){
+		Assert.assertEquals(true,autoMan.getElement(by).isDisplayed());
+	}
+	public void attributeEquals(String a,final By by,String b){
+		Assert.assertEquals(a,autoMan.getElement(by).getAttribute(b));
 	}
 }

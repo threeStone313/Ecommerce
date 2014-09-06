@@ -9,17 +9,15 @@ import org.testng.annotations.Test;
 import prepare.StepsCollection;
 import prepare.basePrepare;
 
-public class A27VerifyFacetsOfLeftNavAppear0nSubsubcategoryPagesAndWorkWell extends basePrepare{
+public class A27VerifyFacetsOfLeftNavAppear0nSubsubcategoryPagesAndWorkWell{
  
 @Test
-  public void facets() throws Exception {
+  public void facets() {
 	  StepsCollection st=new StepsCollection();
 	  st.getSubsubcategory();
-	  String A=driver.findElement(By.className("filterhead")).getText();
-	  Assert.assertEquals("FILTER BY:", A);
-	  driver.findElement(By.id("chkFilter_saleprice_min_0")).click();
-	  Thread.sleep(2000);
-	  Assert.assertEquals("http://qa.weddingshop.theknot.com/wedding-candles.aspx?saleprice_min=under-10", driver.getCurrentUrl());
+	  st.textEquals("FILTER BY:", By.className("filterhead"));
+	  st.singleClick(By.id("chkFilter_saleprice_min_0"));
+	  st.UrlEquals("http://qa.weddingshop.theknot.com/wedding-candles.aspx?saleprice_min=under-10");
 	  
   }
 }

@@ -7,14 +7,14 @@ import org.testng.annotations.Test;
 import prepare.StepsCollection;
 import prepare.basePrepare;
 
-public class D37VerifyIfTheUserSignsInAsAGuestThenTheyAreBroughtToTheNextPartOfTheProcessToFillOutTheirBillingInformation extends basePrepare{
+public class D37VerifyIfTheUserSignsInAsAGuestThenTheyAreBroughtToTheNextPartOfTheProcessToFillOutTheirBillingInformation{
   @Test
-  public void guest() throws Exception {
+  public void guest() {
 	  StepsCollection st=new StepsCollection();
 	  st.ProductPageAndAdd("de");
 	  st.viewCart("checkout");
 	  st.guestOrMember("guest");
-	  Assert.assertEquals("Use my billing address", driver.findElement(By.id("chkOneAddress")).getAttribute("name"));
+	  st.attributeEquals("Use my billing address", By.id("chkOneAddress"),"name");
 	 
   }
 }

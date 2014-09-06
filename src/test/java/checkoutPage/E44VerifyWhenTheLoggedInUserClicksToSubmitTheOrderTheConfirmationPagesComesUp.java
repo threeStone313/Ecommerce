@@ -1,21 +1,18 @@
 package checkoutPage;
 import org.openqa.selenium.By;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import prepare.StepsCollection;
-import prepare.basePrepare;
 
-public class E44VerifyWhenTheLoggedInUserClicksToSubmitTheOrderTheConfirmationPagesComesUp extends basePrepare{
+public class E44VerifyWhenTheLoggedInUserClicksToSubmitTheOrderTheConfirmationPagesComesUp{
   @Test
-  public void confirm() throws Exception {
+  public void confirm() {
 	  StepsCollection st=new StepsCollection();
 		 st.ProductPageAndAdd("sa");
 		  st.viewCart("checkout");
 		  st.guestOrMember("member");
-		  driver.findElement(By.id("SaveAndContinue")).click();
+		  st.singleClick(By.id("SaveAndContinue"));
 		  st.ccInfoAndSubmit(); 
-	  String url="https://qa.weddingshop.theknot.com/checkout/orderconfirmation.aspx";
-	  Assert.assertEquals(url, driver.getCurrentUrl()); 
+	      st.UrlEquals("https://qa.weddingshop.theknot.com/checkout/orderconfirmation.aspx");
 }
 }
