@@ -11,6 +11,7 @@ public class autoMan {
 	int waitTime=60;
 	public void getUrl(String url){
 		basePrepare.driver.get(url);
+		this.sleep(5000);
 	}
 	public String getCurrentUrl(){
 		return basePrepare.driver.getCurrentUrl();
@@ -22,7 +23,7 @@ public class autoMan {
 
 			@Override
 			public Boolean apply(WebDriver d) {
-				return d.findElement(by).isEnabled();
+				return d.findElement(by).isDisplayed();
 			}	
 		});
 			if(status){

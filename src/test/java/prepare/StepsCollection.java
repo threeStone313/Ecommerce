@@ -53,6 +53,8 @@ public class StepsCollection{
 			autoMan.getUrl("http://qa.weddingshop.theknot.com/deluxe-personalized-ribbon-38.aspx");
 			autoMan.getElement(By.xpath("//div[@class='prod-buttons text-center btn-group-lg']//button[@id='ctl00_MainContentArea_ctl00_ctl00_ctl00_addToCartPersonalized']"))
 					.click();
+			autoMan.sleep(2000);
+			this.滚动条();
 			autoMan.getElement(By.xpath("//span[@class='current_step' and text()=3]/../../../.")).click();
 			autoMan.getElement(By.xpath("//input[@id='Names']")).click();
 			autoMan.getElement(By.xpath("//input[@id='Names']")).sendKeys("test");
@@ -130,6 +132,7 @@ public class StepsCollection{
 			autoMan.getElement(By.id("divCheckoutAsGuestButton"))
 					.click();
 		} else if (a == "member") {
+			autoMan.sleep(1000);
 			autoMan.getElement(By.id("lnkLogin")).click();
 			autoMan.getElement(By.id("txtUsername")).sendKeys(
 					"vicwangtest@gmail.com");
@@ -199,8 +202,8 @@ public class StepsCollection{
 	public void singleSend(final By by,String a){//单个的输入文本操作
 		autoMan.getElement(by).sendKeys(a);
 	}
-	public void 滚动条(String coodinate){
-		 String js="scroll(coodinate);";//指定滚动条要滚动的像素
+	public void 滚动条(){
+		 String js="scroll(0,10000);";//指定滚动条要滚动的像素
 		  ((JavascriptExecutor)basePrepare.driver).executeScript(js);//执行滚动
 	}
 	public void UrlEquals(String a){

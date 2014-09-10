@@ -1,8 +1,9 @@
 package GeneralWidget;
 
-import junit.framework.Assert;
+
 
 import org.openqa.selenium.By;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import prepare.StepsCollection;
@@ -43,12 +44,7 @@ public class F46VerifyTheHeaderAndFooterAppearsOnTopOfEveryKWSpage extends baseP
 	  driver.get("http://qa.weddingshop.theknot.com/customer-service.aspx");
 	  Assert.assertEquals(true, driver.findElement(By.xpath("//a[@class='navbar-brand-alt']")).isDisplayed());
 	  Assert.assertEquals(true, driver.findElement(By.xpath("//a[@class='tklogo']")).isDisplayed());
-	  st.getShoppingcart();
-	  st.guestOrMember("guest");
-	  st.billingShippingInfo();
-	  st.ccInfoAndSubmit();
-	  Assert.assertEquals(true, driver.findElement(By.xpath("//a[@class='navbar-brand-alt']")).isDisplayed());
-	  
+	 
 	 
   }
 }

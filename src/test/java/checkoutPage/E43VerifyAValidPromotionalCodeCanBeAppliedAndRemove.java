@@ -21,13 +21,13 @@ public class E43VerifyAValidPromotionalCodeCanBeAppliedAndRemove extends basePre
 	  st.guestOrMember("guest");
 	  st.billingShippingInfo();
 	  st.textEquals("$154.70", By.xpath("//div[@id='SummaryTotals']//div[1]//div[2]//strong"));
-	  st.textEquals("$261.82", By.xpath("//div[@id='SummaryTotals']//div[5]//div[2]//strong"));
+	  st.textEquals("$165.53", By.xpath("//div[@id='SummaryTotals']//div[5]//div[2]//strong"));
 	  st.promoCode("add");
 	  st.textEquals("$154.70", By.xpath("//div[@id='SummaryTotals']//div[1]//div[2]//strong"));
-	  st.textEquals("$245.27", By.xpath("//div[@id='SummaryTotals']//div[6]//div[2]//strong"));
-	  st.滚动条("0,10000");
+	  st.textEquals("$148.98", By.xpath("//div[@id='SummaryTotals']//div[6]//div[2]//strong"));
+	  st.滚动条();
 	  st.promoCode("remove");
 	  st.textEquals("$154.70", By.xpath("//div[@id='SummaryTotals']//div[1]//div[2]//strong"));
-	  st.textEquals("$261.82", By.xpath("//div[@id='SummaryTotals']//div[5]//div[2]//strong"));
+	  st.textEquals("$165.53", By.xpath("//div[@id='SummaryTotals']//div[5]//div[2]//strong"));
   }
 }
