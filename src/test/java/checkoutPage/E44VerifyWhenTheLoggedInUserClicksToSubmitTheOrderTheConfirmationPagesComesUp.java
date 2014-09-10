@@ -3,8 +3,9 @@ import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
 import prepare.StepsCollection;
+import prepare.basePrepare;
 
-public class E44VerifyWhenTheLoggedInUserClicksToSubmitTheOrderTheConfirmationPagesComesUp{
+public class E44VerifyWhenTheLoggedInUserClicksToSubmitTheOrderTheConfirmationPagesComesUp extends basePrepare{
   @Test
   public void confirm() {
 	  StepsCollection st=new StepsCollection();

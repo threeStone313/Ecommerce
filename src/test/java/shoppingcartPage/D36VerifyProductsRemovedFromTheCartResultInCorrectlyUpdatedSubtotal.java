@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 import prepare.StepsCollection;
 import prepare.basePrepare;
 
-public class D36VerifyProductsRemovedFromTheCartResultInCorrectlyUpdatedSubtotal {
+public class D36VerifyProductsRemovedFromTheCartResultInCorrectlyUpdatedSubtotal extends basePrepare{
   @Test
   public void RemovePro() {
 	  StepsCollection st=new StepsCollection();

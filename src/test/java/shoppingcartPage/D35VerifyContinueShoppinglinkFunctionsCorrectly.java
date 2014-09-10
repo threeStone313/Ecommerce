@@ -5,8 +5,9 @@ import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
 import prepare.StepsCollection;
+import prepare.basePrepare;
 
-public class D35VerifyContinueShoppinglinkFunctionsCorrectly{
+public class D35VerifyContinueShoppinglinkFunctionsCorrectly extends basePrepare{
   @Test
   public void Continue()  {
 	  StepsCollection st=new StepsCollection();

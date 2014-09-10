@@ -6,8 +6,9 @@ import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
 import prepare.StepsCollection;
+import prepare.basePrepare;
 
-public class D34VerifyClickingOnMyCartTextRedirectsUseToShoppingCartPage {
+public class D34VerifyClickingOnMyCartTextRedirectsUseToShoppingCartPage extends basePrepare{
   @Test
   public void CartLink() {
 	  StepsCollection st=new StepsCollection();

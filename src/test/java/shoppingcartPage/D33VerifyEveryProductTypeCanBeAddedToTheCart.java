@@ -5,8 +5,9 @@ import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
 import prepare.StepsCollection;
+import prepare.basePrepare;
 
-public class D33VerifyEveryProductTypeCanBeAddedToTheCart {
+public class D33VerifyEveryProductTypeCanBeAddedToTheCart extends basePrepare{
   @Test
   public void Type()  {
 	  StepsCollection st=new StepsCollection();

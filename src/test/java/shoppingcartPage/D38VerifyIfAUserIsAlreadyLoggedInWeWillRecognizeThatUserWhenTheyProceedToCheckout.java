@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 import prepare.StepsCollection;
 import prepare.basePrepare;
 
-public class D38VerifyIfAUserIsAlreadyLoggedInWeWillRecognizeThatUserWhenTheyProceedToCheckout{
+public class D38VerifyIfAUserIsAlreadyLoggedInWeWillRecognizeThatUserWhenTheyProceedToCheckout extends basePrepare{
 	@Test
   public void member()  {
 

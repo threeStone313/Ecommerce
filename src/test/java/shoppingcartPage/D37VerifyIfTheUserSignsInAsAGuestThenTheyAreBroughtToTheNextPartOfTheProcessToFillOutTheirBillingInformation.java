@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 import prepare.StepsCollection;
 import prepare.basePrepare;
 
-public class D37VerifyIfTheUserSignsInAsAGuestThenTheyAreBroughtToTheNextPartOfTheProcessToFillOutTheirBillingInformation{
+public class D37VerifyIfTheUserSignsInAsAGuestThenTheyAreBroughtToTheNextPartOfTheProcessToFillOutTheirBillingInformation extends basePrepare{
   @Test
   public void guest() {
 	  StepsCollection st=new StepsCollection();

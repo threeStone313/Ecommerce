@@ -4,8 +4,9 @@ import org.openqa.selenium.*;
 import org.testng.annotations.Test;
 
 import prepare.StepsCollection;
+import prepare.basePrepare;
 
-public class A26VerifyTheSearchResultReturnedIsRelatedToSearchCondition {
+public class A26VerifyTheSearchResultReturnedIsRelatedToSearchCondition extends basePrepare {
 	@Test
 	public void Search(){
 		StepsCollection st=new StepsCollection();

@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 import prepare.StepsCollection;
 import prepare.basePrepare;
 
-public class A27VerifyFacetsOfLeftNavAppear0nSubsubcategoryPagesAndWorkWell{
+public class A27VerifyFacetsOfLeftNavAppear0nSubsubcategoryPagesAndWorkWell extends basePrepare{
  
 @Test
   public void facets() {

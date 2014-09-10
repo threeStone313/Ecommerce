@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 import prepare.StepsCollection;
 import prepare.basePrepare;
 
-public class B29VerifyPersonalizationDetailsShouldBePassedToMyShoppingCart{
+public class B29VerifyPersonalizationDetailsShouldBePassedToMyShoppingCart extends basePrepare{
   @Test
   public void personalization(){
 	  StepsCollection st=new StepsCollection();

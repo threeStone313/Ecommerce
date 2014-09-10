@@ -4,7 +4,7 @@ import org.openqa.selenium.*;
 import org.testng.Assert;
 
 public class StepsCollection{
-	autoMan autoMan=null;
+	autoMan autoMan=new autoMan();
 	public void getHP() {// 去到homepage
 		autoMan.getUrl("http://qa.weddingshop.theknot.com/");
 	}

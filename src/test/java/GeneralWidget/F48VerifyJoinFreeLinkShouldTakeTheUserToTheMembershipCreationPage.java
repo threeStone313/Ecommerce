@@ -4,8 +4,9 @@ import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
 import prepare.StepsCollection;
+import prepare.basePrepare;
 
-public class F48VerifyJoinFreeLinkShouldTakeTheUserToTheMembershipCreationPage {
+public class F48VerifyJoinFreeLinkShouldTakeTheUserToTheMembershipCreationPage extends basePrepare{
   @Test
   public void join() {
 	  StepsCollection st=new StepsCollection();

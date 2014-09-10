@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 import prepare.StepsCollection;
 import prepare.basePrepare;
 
-public class E43VerifyAValidPromotionalCodeCanBeAppliedAndRemove {
+public class E43VerifyAValidPromotionalCodeCanBeAppliedAndRemove extends basePrepare{
   @Test
   public void Promo() {
 	  StepsCollection st=new StepsCollection();

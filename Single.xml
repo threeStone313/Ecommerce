@@ -2,7 +2,7 @@
     <test name="STKWS" preserve-order="true">
     <parameter name="browser" value="chrome" />
         <classes>
-        	<class name="checkoutPage.E43VerifyAValidPromotionalCodeCanBeAppliedAndRemove"/>
+        	<class name="listPage.A26VerifyTheSearchResultReturnedIsRelatedToSearchCondition"/>
         </classes>
     </test> 
       <listeners>
