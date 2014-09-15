@@ -2,34 +2,39 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="KWS" parallel="classes" thread-count="1">    
 <parameter name="browser" value="chrome" />
-    <test name="ListPage" preserve-order="true">
+    <test name="KWS.ListPage" preserve-order="true">
      	<packages>
-	  			<package name = "listPage" />
+	  			<package name = "KWS.listPage" />
 		</packages>
     </test> 
-    <test name="product" preserve-order="true">
+    <test name="KWS.product" preserve-order="true">
      	<packages>
-	  			<package name = "productPage" />
+	  			<package name = "KWS.productPage" />
 		</packages>
     </test> 
-    <test name="miniCart" preserve-order="true">
+    <test name="KWS.miniCart" preserve-order="true">
      	<packages>
-	  			<package name = "miniCart" />
+	  			<package name = "KWS.miniCart" />
 		</packages>
     </test> 
-    <test name="shoppingCart" preserve-order="true">
+    <test name="KWS.shoppingCart" preserve-order="true">
      	<packages>
-	  			<package name = "shoppingcartPage" />
+	  			<package name = "KWS.shoppingcartPage" />
 		</packages>
     </test> 
-    <test name="checkout" preserve-order="true">
+    <test name="KWS.checkout" preserve-order="true">
      	<packages>
-	  			<package name = "checkoutPage" />
+	  			<package name = "KWS.checkoutPage" />
 		</packages>
     </test> 
-    <test name="GeneralWidget" preserve-order="true">
+    <test name="KWS.GeneralWidget" preserve-order="true">
      	<packages>
-	  			<package name = "GeneralWidget" />
+	  			<package name = "KWS.GeneralWidget" />
+		</packages>
+    </test> 
+     <test name="KWS.Payment" preserve-order="true">
+     	<packages>
+	  			<package name = "KWS.Payment" />
 		</packages>
     </test> 
     <listeners>
