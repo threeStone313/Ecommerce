@@ -1,14 +1,15 @@
-<suite name="KWS" verbose="5">    
-    <test name="STKWS" preserve-order="true">
+<suite name="KWS" verbose="5" parallel="tests">    
     <parameter name="browser" value="chrome" />
-        <classes>
-            <class name="KWS2.A26VerifyTheSearchResultReturnedIsRelatedToSearchCondition"/>
-            <class name="KWS2.A27VerifyFacetsOfLeftNavAppear0nSubsubcategoryPagesAndWorkWell"/>
-            <class name="KWS2.B28VerifyWhenISelectOptionsOrInputTextIShouldSeeALiveScene7RenderingOfMySelections"/>
-            <class name="KWS2.B29VerifyPersonalizationDetailsShouldBePassedToMyShoppingCart"/>
-            <class name="KWS2.C30VerifyClickingOnCheckoutInMiniCartWindowTakesUserToShoppingCartPage"/>    
-            <class name="KWS2.C32VerifyProductDetailsShouldBeShownOnMiniCart"/>      
-            <class name="KWS2.D33VerifyEveryProductTypeCanBeAddedToTheCart"/> 
-        </classes>
-    </test> 
+      
+
+     <listeners>
+	    <!-- 网易arrow插件实现用例失败重跑以及生成测试报告 -->
+			<listener class-name="com.netease.qa.testng.TestResultListener" />
+			<listener class-name="com.netease.qa.testng.RetryListener" />
+			<listener class-name="com.netease.qa.testng.PowerEmailableReporter" />	
+	  </listeners>
+	  
+	      <!-- 用来禁止TestNg产生报告  
+    <usedefaultlisteners name="false" />
+			 -->
 </suite>

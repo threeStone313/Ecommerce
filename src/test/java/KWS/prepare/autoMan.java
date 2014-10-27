@@ -24,7 +24,7 @@ public class autoMan {
 	}
 
 	public String getCurrentUrl() {
-		logger.info("Get curretn page' url");
+		logger.info("Get current page' url");
 		return basePrepare.driver.getCurrentUrl();	
 	}
 
@@ -66,7 +66,7 @@ public class autoMan {
 	public void sleep(int sleepTime) {
 		try {
 			Thread.sleep(sleepTime);
-			logger.info("Wait ["+sleepTime+"]ms");
+			logger.info("Wait ["+sleepTime+"] ms");
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}

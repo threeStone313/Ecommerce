@@ -24,5 +24,5 @@ public class D38VerifyIfAUserIsAlreadyLoggedInWeWillRecognizeThatUserWhenTheyPro
 	  st.getShoppingcart();
 	  st.singleClick(By.xpath("//button[contains(text(),'PROCEED TO CHECKOUT')]"));
 	  st.attributeEquals("Use my billing address", By.id("chkOneAddress"),"name");
-  }
+	}
 }

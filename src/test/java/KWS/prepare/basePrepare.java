@@ -41,6 +41,7 @@ public class basePrepare {
 				ChromeOptions options = new ChromeOptions();
 				// options.addExtensions(new
 				// File("C:\\Users\\swang\\AppData\\Local\\Google\\Chrome\\User Data\\Default\\Extensions\\ijaobnmmgonppmablhldddpfmgpklbfh\\1.6.0_0.crx"));
+				options.setBinary("C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe");
 				options.addArguments("test-type", "start-maximized",
 						"no-default-browser-check");
 				driver = new ChromeDriver(options);

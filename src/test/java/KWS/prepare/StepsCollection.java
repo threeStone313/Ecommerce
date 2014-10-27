@@ -15,7 +15,6 @@ public class StepsCollection{
 
 	public void getShoppingcart() {// 去到shoppingcart
 		autoMan.getUrl("http://qa.weddingshop.theknot.com/cart/shoppingcart.aspx");
-		autoMan.sleep(3000);
 	}
 
 	public void getSubsubcategory() {// 去到Subsubcategory page

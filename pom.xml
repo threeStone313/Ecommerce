@@ -86,7 +86,7 @@
         <suiteXmlFile>runPacks.xml</suiteXmlFile>
       </suiteXmlFiles>
       <!--定义maven运行测试生成的报表路径-->
-      <reportsDirectory>D:/javaproject/Ecommerce/result/test-report</reportsDirectory>
+      <reportsDirectory>./result/test-report</reportsDirectory>
     </configuration>
   </plugin>                 
   
